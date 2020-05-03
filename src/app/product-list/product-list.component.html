@@ -1,29 +1,35 @@
-<h2>Products</h2>
+
+
+<!-- 신규 -->
+ <mat-nav-list>
+  <a mat-list-item href="..." *ngFor="let item of service.roomData ; let i = index">{{item.name}}</a>
+</mat-nav-list>
+
+
+<!-- 기존 -->
+<!-- <h2>Products</h2>
 
 <div *ngFor="let product of products ; index as productId">
 
-   <h3>
-     <a [title]="product.name +'details'" 
-     [routerLink] = "['/products', productId]">  
-        {{ product.name }}
-        </a>
+  <h3>
+    <a [title]="product.name +'details'" [routerLink]="['/products', productId]">
+      {{ product.name }}
+    </a>
   </h3>
 
   <p *ngIf="product.description">
-     Description: {{ product.description }}
-    </p>
+    Description: {{ product.description }}
+  </p>
 
-<button (click)= "share()">
-  Share
+  <button (click)="share()">
+    Share
   </button>
 
-  <app-product-alerts [product] ="product"
-    (notify)="onNotify()"
-  >
-      </app-product-alerts>
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
 
 
-</div>
+</div> -->
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

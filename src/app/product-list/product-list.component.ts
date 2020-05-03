@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { products } from '../products';
+import { RestApiServiceService } from '../services/rest-api-service.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,7 +9,48 @@ import { products } from '../products';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
+
+  // items = [
+  //   { name: '커뮤니티룸1', isUsed: true },
+  //   { name: '커뮤니티룸2', isUsed: false },
+  //   { name: '커뮤니티룸3', isUsed: false },
+  //   { name: '커뮤니티룸4', isUsed: false },
+  //   { name: '서바이벌', isUsed: false },
+  //   { name: '베이직', isUsed: false },
+  //   { name: 'BTS', isUsed: false },
+  //   { name: '스탠다드', isUsed: false },
+  //   { name: '카이젠', isUsed: false },
+  //   { name: '임원회의실', isUsed: false },
+  //   { name: 'RTE', isUsed: false },
+  //   { name: '교육장(출)', isUsed: false },
+  //   { name: '교육장(휴)', isUsed: false }
+  // ];
+
+// INSERT INTO my_db.rooms VALUES ( id, '서바이벌', '자율', true);
+// INSERT INTO my_db.rooms VALUES ( id, '베이직', '자율', true);
+// INSERT INTO my_db.rooms VALUES ( id, 'BTS', '자율', true);
+// INSERT INTO my_db.rooms VALUES ( id, '스탠다드', '자율', true);
+// INSERT INTO my_db.rooms VALUES ( id, '카이젠', '자율', true);
+// INSERT INTO my_db.rooms VALUES ( id, '임원회의실', '자율', true);
+// INSERT INTO my_db.rooms VALUES ( id, 'RTE', '자율', true);
+// INSERT INTO my_db.rooms VALUES ( id, '교육장(출)', '자율', true);
+// INSERT INTO my_db.rooms VALUES ( id, '교육장(휴) ', '자율', true);
+
+  item: any;
+  service: any;
+
   products = products;
+
+  constructor(
+    public restApiservice: RestApiServiceService
+
+  ) {
+
+    this.service = restApiservice;
+    this.service.getRooms();
+  }
+
+
 
   share() {
     window.alert('The product has been shared!');
@@ -16,6 +58,69 @@ export class ProductListComponent {
   onNotify() {
     window.alert('You will be notified when the product goes on sale');
   }
+
+
+  setRooms() {
+
+  }
+
+  getReservation() {
+    this.service.getReservation('2020-02-26');
+  }
+
+
+  post() {
+    this.service.post();
+  }
+
+  get() {
+    this.service.get();
+  }
+
+  test() {
+    console.log("test")
+  }
+
+  nextPage(data, id) {
+    // this.navCtrl.push(ReservationRoomListPage, { roomName: data , roomId : id})
+  }
+
+  getPushChecked(roomName) {
+    // this.storage.get(roomName).then((val) => {
+    //     console.log(val);
+    // });
+  }
+
+  setPushChecked(roomName, bool) {
+
+    // if(bool) {
+    //   this.storage.set(roomName, true);
+    // }
+    // else {
+    //   this.storage.set(roomName, false);
+    // }
+
+  }
+
+  setPush(id, bool) {
+    // console.log(bool);
+
+    // const key = String(id);
+
+    // this.storage.set(key, bool);
+
+    // if (bool) {
+    //   this.fcm.subscribeToTopic(key);
+    //   console.log('subscribeToTopic : ' + key);
+    // } else {
+    //   this.fcm.unsubscribeFromTopic(key);
+    //   console.log('unsubscribeFromTopic : ' + key);
+    // }
+
+  }
+
+
+
 }
 
 

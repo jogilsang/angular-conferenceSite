@@ -15,9 +15,15 @@ import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 
+// 서비스
+import { RestApiServiceService } from './services/rest-api-service.service';
+
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
+  
   imports: [
+    MatListModule,
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -38,7 +44,7 @@ import { ShippingComponent } from './shipping/shipping.component';
     ShippingComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [CartService]
+  providers: [CartService, RestApiServiceService]
 })
 export class AppModule { }
 
