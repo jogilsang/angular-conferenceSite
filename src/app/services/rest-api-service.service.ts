@@ -9,7 +9,7 @@ export class RestApiServiceService {
 
   observable: Observable<Object>;
 
-  domain: string = 'http://ec2-3-22-77-140.us-east-2.compute.amazonaws.com:4000'
+  domain: string = 'https://jogilsang.xyz'
   
   // domain: string = 'http://localhost:3000'
   path: string = '/api'
